@@ -1,24 +1,21 @@
 from django.contrib import admin
 
-# Register your models here.
-from .models import Product
-from .models import Warehouse
-from .models import Overhead
+from .models import Overhead, Product, Warehouse
+
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['nameproduct','code']
-    list_filter=['nameproduct']
+    list_display = ['nameproduct', 'code']
+    search_fields = ['nameproduct', 'code']
+
 
 @admin.register(Warehouse)
-class WarehousAdmin(admin.ModelAdmin):
-    list_display = ['namewar','price','remainder']
-    list_filter=['namewar']
+class WarehouseAdmin(admin.ModelAdmin):
+    list_display = ['namewar', 'price', 'remainder']
+    list_filter = ['namewar']
+
 
 @admin.register(Overhead)
 class OverheadAdmin(admin.ModelAdmin):
-    list_display = ['nameover','price','quantity']
+    list_display = ['nameover', 'price', 'quantity']
     list_filter = ['nameover']
-
-
-

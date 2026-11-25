@@ -1,17 +1,21 @@
 from rest_framework import serializers
-from ..models import Product,Warehouse,Overhead
+
+from ..models import Overhead, Product, Warehouse
+
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fileds = ['name','code']
+        fields = ['id', 'nameproduct', 'code']
 
-class WarehouseSerializer(serializers.ModelSerialzer):
+
+class WarehouseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Warehouse
-        fileds = ['namewar','price','remainder']
+        fields = ['id', 'namewar', 'price', 'remainder']
+
 
 class OverheadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Overhead
-        fields = ['nameover','price','quantity']
+        fields = ['id', 'nameover', 'price', 'quantity']
